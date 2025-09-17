@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./loginsignup.css";
-import NavigationBar from "./Navbar";
+import "./Login.css";
+import NavigationBar from "./Navbar/Navbar";
 
-function SignupForm() {
+function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
 
+  // firstName, lastName, email, password, confirmPassword
+
   const navigate = useNavigate();
 
   const validate = () => {
     let newErrors = {};
-    
+
     if (name.length === 0) {
-        newErrors.name = "Name is required";
-        }
+      newErrors.name = "Name is required";
+    }
 
     if (!email.includes("@")) {
       newErrors.email = "Enter a valid email address";
@@ -45,9 +47,8 @@ function SignupForm() {
   };
 
   return (
-    
     <div>
-        <NavigationBar />
+      <NavigationBar />
       <div className="container mycontainer">
         <div className="header">
           <div className="text">Sign Up</div>
@@ -62,7 +63,6 @@ function SignupForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            
           </div>
           {errors.name && <p className="error">{errors.name}</p>}
 
@@ -73,8 +73,8 @@ function SignupForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            
-          </div>{errors.email && <p className="error">{errors.email}</p>}
+          </div>
+          {errors.email && <p className="error">{errors.email}</p>}
 
           <div className="input">
             <input
@@ -83,9 +83,8 @@ function SignupForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            
           </div>
-{errors.password && <p className="error">{errors.password}</p>}
+          {errors.password && <p className="error">{errors.password}</p>}
 
           <div className="input">
             <input
@@ -94,11 +93,10 @@ function SignupForm() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-           
           </div>
-           {errors.confirmPassword && (
-              <p className="error">{errors.confirmPassword}</p>
-            )}
+          {errors.confirmPassword && (
+            <p className="error">{errors.confirmPassword}</p>
+          )}
 
           <button type="submit" className="submit">
             Sign Up
@@ -109,4 +107,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default Signup;
