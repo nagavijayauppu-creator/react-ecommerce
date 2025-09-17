@@ -1,0 +1,24 @@
+.productimg{
+    width:100px;
+}
+.product{
+    color:rgb(36, 36, 44);
+    padding: 20px;
+    border: 1px solid black;
+    width:20%;
+    margin: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.product:hover {
+  transform: scale(1.05);
+}
+button{
+     margin: 10px 10px;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;  
+  gap: 20px;        
+  justify-content: center;
+  margin-top: 20px;
+}
