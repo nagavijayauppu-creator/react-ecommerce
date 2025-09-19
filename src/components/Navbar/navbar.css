@@ -1,4 +1,9 @@
-.navbarcss{
-    background-color: pink;
-    color: black;
+.navbar .nav-link {
+  color: #101010 ;  
+  font-weight: 400;
+  margin-left: 20px;
+}
+.navbar .nav-link:hover{
+  color: #870101;  
+  
 }

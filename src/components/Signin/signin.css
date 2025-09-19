@@ -1,0 +1,10 @@
+.signin-card{
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  height:100vh;
+}
+
+.left-side{
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border-radius:  0 12px 12px 0;
+}
