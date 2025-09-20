@@ -9,12 +9,18 @@ import Signin from "./components/Signin/Signin";
 import Signup from "./components/SignUp/SignUp";
 
 function App() {
+  const isUserLoggedIn = localStorage.getItem("user");
+  const homeRoute = window.location.pathname === "/home";
+  // If user not in local storage and home route
+  if (!isUserLoggedIn && homeRoute) {
+    window.location.href = "/";
+  }
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Signin />} />
           <Route path="home" element={<Home />} />
+          <Route path="/" element={<Signin />} />
           <Route path="about" element={<About />} />
           <Route path="products" element={<Products />} />
           <Route path="/signin" element={<Signin />} />

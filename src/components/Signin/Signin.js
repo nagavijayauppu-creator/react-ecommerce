@@ -4,7 +4,6 @@ import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function Signin() {
-
   const listofusers = [
     { email: "vijji@gmail.com", password: "123456" },
     { email: "kanna@gmail.com", password: "123456" },
@@ -20,14 +19,14 @@ function Signin() {
   const validateField = (name, value) => {
     let message = "";
     if (name === "email") {
-      if (value.length===0) {
+      if (value.length === 0) {
         message = "Email is required";
       } else if (!/\S+@\S+\.\S+/.test(value)) {
         message = "Invalid email address";
       }
     }
     if (name === "password") {
-      if (value.length===0) {
+      if (value.length === 0) {
         message = "Password is required";
       } else if (value.length < 6) {
         message = "Password must be at least 6 characters";
@@ -64,19 +63,29 @@ function Signin() {
         (u) => u.email === formData.email && u.password === formData.password
       );
       if (enteredname) {
+        localStorage.setItem("user", formData.email);
         navigate("/home");
       } else {
-        setErrors({ ...errors, password: "Invalid email or password. Please try again.", });
+        setErrors({
+          ...errors,
+          password: "Invalid email or password. Please try again.",
+        });
       }
-    };
-  }
+    }
+  };
 
   //html return
   return (
-    <Container fluid className="signin-card d-flex align-items-center justify-content-center">
+    <Container
+      fluid
+      className="signin-card d-flex align-items-center justify-content-center"
+    >
       <Card>
         <Row>
-          <Col md={6} className="d-flex flex-column justify-content-center text-center mt-5 mb-5">
+          <Col
+            md={6}
+            className="d-flex flex-column justify-content-center text-center mt-5 mb-5"
+          >
             <>
               <h2>Sign in</h2>
               <Form className="mt-3" onSubmit={handleSubmit} noValidate>
@@ -115,14 +124,19 @@ function Signin() {
           </Col>
           <Col
             md={6}
-            className="left-side d-flex flex-column justify-content-center align-items-center text-center">
+            className="left-side d-flex flex-column justify-content-center align-items-center text-center"
+          >
             <>
               <h2>Hello, Friend!</h2>
               <p>Enter your personal details and start journey with us</p>
               <Button
                 type="button"
                 variant="light"
-                onClick={() => navigate("/signup")}> SIGN UP </Button>
+                onClick={() => navigate("/signup")}
+              >
+                {" "}
+                SIGN UP{" "}
+              </Button>
             </>
           </Col>
         </Row>
